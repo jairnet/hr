@@ -1,0 +1,40 @@
+{% extends "base_dashboard.html" %}
+{% block title%}<title>Aspirante|Crear</title>{% endblock %}
+{% block content %}
+<h1>crear usuario</h1>
+<div class="container">
+    <br>
+    <h3>Registro Aspirante</h3>
+    <hr>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <select class="form-control">
+                <option value="CC">Cédula de ciudadanía</option>
+                <option value="CE">Cédula de extranjería</option>
+                <option value="PA"> Pasaporte</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_identification">Identification</label>
+            <input type="text" name="identification" class="form-control" id="id_identification" required>
+        </div>
+        <div class="form-group">
+            <label for="id_first_name">Nombres</label>
+            <input type="text" name="first_name" maxlength="50" class="form-control" id="id_first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="id_last_name">Apellidos</label>
+            <input type="text" name="last_name" maxlength="50" class="form-control" id="id_last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="id_file_cv">Adjunta tu HV</label>
+            <input type="file" name="file_cv" accept="image/*" class="form-control-file" id="id_file_cv">
+          </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+</div>
+{% endblock %}
