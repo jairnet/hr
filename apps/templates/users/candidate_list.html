@@ -1,0 +1,51 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+
+{% block title %}
+    <title>HR | Lista Aspirantes</title>
+{% endblock %}
+
+{% block link %}
+    
+{% endblock %}
+
+
+{% block content %}
+<br>
+<br>
+<br>
+
+<div class="container">
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Tipo Documento</th>
+            <th scope="col">Identificacion</th>
+            <th scope="col">Ver Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+          <tr>
+            <td>{{ object.first_name }}</td>
+            <td>{{ object.last_name }}</td>
+            <td>{{ object.type_document }}</td>
+            <td>{{ object.identification }}</td>
+            <td><a href="{% url 'detail_candidates' object.pk %}">Ver</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        {% else %}
+        <div>
+            <div class="alert alert-primary" role="alert">
+                A simple primary alert—check it out!
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

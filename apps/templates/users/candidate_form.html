@@ -9,7 +9,7 @@
     {% if error %}
         {{ error }}
     {% endif %}
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'create_candidate' %}">
         {% csrf_token %}
         <div class="form-group">
             <select class="form-control">

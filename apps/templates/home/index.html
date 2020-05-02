@@ -61,8 +61,7 @@
     <a class="p-2 text-dark" href="#">Convocatorias</a>
   </nav>
   {% if user.is_authenticated %}
-    <!-- <a class="btn btn-outline-primary" href="{% url 'dashboard' %}">Ingreso</a> -->
-    <a class="btn btn-outline-primary" href="{% url 'dashboard' %}">Ingreso</a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard_admin' %}">Ingreso</a>
   {% else %}
     <a class="btn btn-outline-primary" href="{% url 'login' %}">Ingreso</a>
   {% endif %}

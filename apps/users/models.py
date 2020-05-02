@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -20,3 +21,7 @@ class Candidate(models.Model):
     def __str__(self):
         """Return first_name"""
         return self.first_name
+
+    # def get_absolute_url(self):
+    #     view_name = "detail_candidate"
+    #     return reverse(view_name, kwargs={"id": self.id})
